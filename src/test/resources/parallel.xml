@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite2" parallel="methods" thread-count="3">
+
+    <parameter name="firstvalue" value="3"/>
+    <parameter name="secondvalue" value="2"/>
+    <parameter name="thirdvalue" value="6"/>
+
+    <test name="Test1">
+        <classes>
+            <class name="unitTests.arithmericalTests.MultOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.MultOfLongTest"/>
+        </classes>
+    </test>
+
+    <test name="Test2">
+        <classes>
+            <class name="unitTests.arithmericalTests.DivOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.DivOfLongTest"/>
+            <class name="unitTests.arithmericalTests.MultOfLongTest"/>
+            <class name="unitTests.arithmericalTests.MultOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.PowOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.SqrtOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.SubOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.SubOfLongTest"/>
+            <class name="unitTests.arithmericalTests.SumOfDoubleTest"/>
+            <class name="unitTests.arithmericalTests.SumOfLongTest"/>
+            <class name="unitTests.trigonometrickTests.SinOfDoubleTest"/>
+            <class name="unitTests.trigonometrickTests.CosOfDoubleTest"/>
+            <class name="unitTests.trigonometrickTests.TgOfDoubleTest"/>
+            <class name="unitTests.trigonometrickTests.CtgOfDoubleTest"/>
+
+        </classes>
+    </test>
+
+</suite>
