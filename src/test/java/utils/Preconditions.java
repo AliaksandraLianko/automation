@@ -10,10 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
+import pages.LoginPage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -28,23 +26,31 @@ public class Preconditions {
             System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
-        }
-        else if (browser.equalsIgnoreCase("firefox")) {
+        } else if (browser.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\geckodriver.exe");
             driver = new FirefoxDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
-        }
-        else if (browser.equalsIgnoreCase("ie")) {
+        } else if (browser.equalsIgnoreCase("ie")) {
             System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\IEDriverServer.exe");
             driver = new InternetExplorerDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         }
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.openClientSite();
+        loginPage.logIn("norma_nominator", "pass");
+
     }
+
+
     @AfterClass
     public void closeDriver() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.logOut();
+        loginPage.logInAfterLogout();
         if (driver != null)
             driver.quit();
     }
+
     public WebElement waitElementAndClick(WebElement webElement) {
         return new WebDriverWait(driver, 10)
                 .ignoring(StaleElementReferenceException.class)
