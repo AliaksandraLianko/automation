@@ -8,8 +8,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Preconditions;
 
-
+//basic webdriver test without page objects
 public class MyNominationsTest extends Preconditions {
+
 
     @Test
     public void verifyMyNominationsPage() throws InterruptedException{
