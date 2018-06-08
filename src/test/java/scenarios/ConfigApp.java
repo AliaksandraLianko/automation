@@ -31,8 +31,8 @@ public class ConfigApp extends ConfigAppPreconditions {
         driver.findElement(By.xpath("//a[@id='ygtvlabelel40']")).click();
         Thread.sleep(3000);
         List<WebElement> programs = driver.findElements(By.xpath("//tbody[@class='yui-dt-data']/tr"));
-        //actions.dragAndDrop(programs.get(1), programs.get(0)).build().perform();
-        actions.clickAndHold(programs.get(1)).moveToElement(programs.get(0)).build().perform();
+        actions.dragAndDrop(programs.get(1), programs.get(0)).build().perform();
+        //actions.clickAndHold(programs.get(1)).moveToElement(programs.get(0)).build().perform();
         Thread.sleep(5000);
 
 

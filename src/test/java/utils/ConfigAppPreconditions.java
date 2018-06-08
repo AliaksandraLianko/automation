@@ -1,5 +1,6 @@
 package utils;
 
+import com.sun.javafx.runtime.SystemProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,15 +22,17 @@ public class ConfigAppPreconditions{
     private static final int implicitTimeout = 15;
     protected WebDriver driver;
 
-    @Parameters({"browser"})
+//    @Parameters({"browser"})
     @BeforeClass
-    public void start(@Optional(value = "chrome") String browser) {
+    public void start(/*@Optional(value = "chrome") String browser*/) {
+        String browser = System.getProperty("browserName");
+        System.out.println("Current browser:" + browser);
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", ".\\src\\test\\resources\\geckodriver.exe");
             driver = new FirefoxDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         } else if (browser.equalsIgnoreCase("ie")) {
