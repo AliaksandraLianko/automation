@@ -17,6 +17,7 @@ public class ApproveNomination extends BaseApproverTest{
         myDashboardMenuPage.goToMyApprovals();
         MyApprovalsPage myApprovalsPage = new MyApprovalsPage(getDriver());
         Assert.assertEquals(myApprovalsPage.verifyApprovalsTitle(), "My Approvals");
+        Thread.sleep(5000);
         Assert.assertEquals(myApprovalsPage.verifyNominationTitle(), "Norma Nominator nominated\n" +
                 "Mandy Manager1");
         Assert.assertTrue(myApprovalsPage.verifyApprovalCard());
@@ -39,7 +40,8 @@ public class ApproveNomination extends BaseApproverTest{
         Assert.assertEquals(approvalLightbox.verifyApproveButton(), "Approve");
         Assert.assertEquals(approvalLightbox.verifyDisapproveButton(), "Disapprove");
         approvalLightbox.approveNomination();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
+
 
     }
 }

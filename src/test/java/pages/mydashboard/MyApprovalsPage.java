@@ -11,6 +11,7 @@ import ru.yandex.qatools.htmlelements.element.TextBlock;
 public class MyApprovalsPage extends BasePage {
 
     private By approvalLightbox = By.id("unifiedAwardDetailsLightbox");
+    private By approveNominationTitle = By.xpath("//*[contains(@id, 'unifiedAwardDetailsLightbox')]/div/h2");
 
     @FindBy(xpath="//div[contains(@class, 'approvals-section-header-text')]")
     private TextBlock myApprovalsTitle;
@@ -42,6 +43,7 @@ public class MyApprovalsPage extends BasePage {
     public void clickViewNominationLink(){
         viewNominationLink.click();
         waitElementPresent(approvalLightbox);
+        waitElementPresent(approveNominationTitle);
     }
 
     public String verifyApprovalsTitle() {

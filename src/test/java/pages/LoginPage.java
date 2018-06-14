@@ -40,7 +40,7 @@ public class LoginPage extends BasePage{
     }
 
     public void logOut() {
-        waitElementPresent(By.xpath("//*[@class='container']/div[2]//li[5]/a"));
+        waitElementClickable(By.xpath("//*[@class='container']/div[2]//li[5]/a"));
         logoutButton.click();
         waitElementPresent(By.id("signIn"));
     }

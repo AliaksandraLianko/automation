@@ -53,6 +53,13 @@ public abstract class BasePage {
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public WebElement waitElementClickable(final By by) {
+        return new WebDriverWait(webdriver, 5)
+                .pollingEvery(Duration.ofSeconds(1))
+                .withMessage("Failed to wait element: " + by)
+                .until(ExpectedConditions.elementToBeClickable(by));
+    }
+
     public WebElement waitElementAndClick(WebElement webElement) {
         return new WebDriverWait(webdriver, 10)
                 .ignoring(StaleElementReferenceException.class)
