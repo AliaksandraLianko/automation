@@ -1,11 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
@@ -21,7 +23,8 @@ public abstract class BasePage {
         webdriver = driver;
         webdriver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         webdriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_TIMEOUT, TimeUnit.SECONDS);
-        PageFactory.initElements(webdriver, this);
+        //PageFactory.initElements(webdriver, this);
+        HtmlElementLoader.populatePageObject(this, webdriver);
     }
 
     public WebDriver getWebDriver() {
@@ -48,6 +51,13 @@ public abstract class BasePage {
                 .pollingEvery(Duration.ofSeconds(1))
                 .withMessage("Failed to wait element: " + by)
                 .until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public WebElement waitElementAndClick(WebElement webElement) {
+        return new WebDriverWait(webdriver, 10)
+                .ignoring(StaleElementReferenceException.class)
+                .pollingEvery(Duration.ofSeconds(1))
+                .until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
 }

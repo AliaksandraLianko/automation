@@ -1,13 +1,15 @@
-package pages;
+package pages.nomination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class AwardAdvisorPage extends BasePage {
     @FindBy(xpath="//*[@class='np-program-advisor']//a")
-    private WebElement skipAdvisor;
+    private Link skipAdvisor;
 
     public void skipAwardAdvisor() throws InterruptedException {
         skipAdvisor.click();

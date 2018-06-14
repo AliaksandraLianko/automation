@@ -1,5 +1,7 @@
 package utils;
 
+import businessobjects.User;
+import factory.UserStaticFactory;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -12,13 +14,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import pages.LoginPage;
+import services.LoginService;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Preconditions {
+
+    private final String URL = "https://test-web1-17.corp.globoforce.com/microsites/t/home?client=recipientbased&setCAG=true";
+
+    public void openClientSite() {
+        driver.get(URL);
+    }
+
     private static final int implicitTimeout = 15;
     protected WebDriver driver;
+
     @Parameters({"browser"})
     @BeforeClass
     public void start(@Optional(value = "chrome") String browser) {
@@ -27,7 +38,7 @@ public class Preconditions {
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", ".\\src\\test\\resources\\geckodriver.exe");
             driver = new FirefoxDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         } else if (browser.equalsIgnoreCase("ie")) {
@@ -35,9 +46,13 @@ public class Preconditions {
             driver = new InternetExplorerDriver();
             driver.manage().timeouts().implicitlyWait(implicitTimeout, TimeUnit.SECONDS);
         }
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openClientSite();
-        loginPage.logIn("norma_nominator", "pass");
+        openClientSite();
+        /*LoginPage loginPage = new LoginPage(driver);
+        loginPage.openClientSite();*/
+        User user = UserStaticFactory.createNominator();
+        LoginService loginService = new LoginService(driver);
+        loginService.loginToApp(user);
+        //loginPage.logIn("norma_nominator", "pass");
 
     }
 

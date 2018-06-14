@@ -4,15 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class TopMenuPage extends BasePage {
 
 
     @FindBy(xpath="//*[@id=\"navBar\"]//a[contains(@href,'dashboard')]")
-    private WebElement dashboard;
+    private Link dashboard;
 
     @FindBy(id="np_start")
-    private WebElement recognize;
+    private Link recognize;
 
     public void goToMyDashboard(){
         dashboard.click();

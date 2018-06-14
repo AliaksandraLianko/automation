@@ -1,31 +1,33 @@
-package pages;
+package pages.mydashboard;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
 
 public class MyNominationsPage extends BasePage {
     @FindBy(className="nominations-title")
-    private WebElement title;
+    private TextBlock title;
 
     @FindBy(xpath="//*[@class='a-table a-table-nominations']/thead/tr/th[1]")
-    private WebElement date;
+    private TextBlock date;
 
     @FindBy(xpath="//*[@class='a-table a-table-nominations']/thead/tr/th[2]")
-    private WebElement awardType;
+    private TextBlock awardType;
 
     @FindBy(xpath="//*[@class='a-table a-table-nominations']/thead/tr/th[3]")
-    private WebElement recipient;
+    private TextBlock recipient;
 
     @FindBy(xpath="//*[@class='a-table a-table-nominations']/thead/tr/th[4]")
-    private WebElement status;
+    private TextBlock status;
 
     @FindBy(xpath="//*[@class='a-table a-table-nominations']/thead/tr/th[5]")
-    private WebElement awardAmount;
+    private TextBlock awardAmount;
 
     @FindBy(xpath="//*[@class='detailsLink a-tooltip-target']")
-    private WebElement nominationDetailsIcon;
+    private TextBlock nominationDetailsIcon;
 
     public String verifyDate() {
         return date.getText();

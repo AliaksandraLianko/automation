@@ -4,25 +4,27 @@ package scenarios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import pages.mydashboard.MyDashboardMenuPage;
+import pages.mydashboard.MyNominationsPage;
 import utils.Preconditions;
 
 
-public class MyNominationsTest extends Preconditions  {
+public class MyNominationsTest extends BaseNominatorTest  {
 
     @Test(priority = 0)
     public void verifyMyNominationsPage() throws InterruptedException{
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        TopMenuPage topMenuPage = new TopMenuPage(getDriver());
         topMenuPage.goToMyDashboard();
-        MyDashboardMenuPage myDashboardMenuPage = new MyDashboardMenuPage(driver);
+        MyDashboardMenuPage myDashboardMenuPage = new MyDashboardMenuPage(getDriver());
         myDashboardMenuPage.goToMyNominations();
-        MyNominationsPage myNominationsPage = new MyNominationsPage(driver);
+        MyNominationsPage myNominationsPage = new MyNominationsPage(getDriver());
         Assert.assertEquals(myNominationsPage.verifyDate(), "Date");
         Assert.assertEquals(myNominationsPage.verifyAwardType(), "Award Type");
         Assert.assertEquals(myNominationsPage.verifyRecipient(), "Recipient");
         Assert.assertEquals(myNominationsPage.verifyStatus(), "Status");
         Assert.assertEquals(myNominationsPage.verifyAwardAmount(), "Award Amount");
         myNominationsPage.openNominationDetailsLightbox();
-        NominationDetailsLightbox nominationDetailsLightbox = new NominationDetailsLightbox(driver);
+        NominationDetailsLightbox nominationDetailsLightbox = new NominationDetailsLightbox(getDriver());
         Assert.assertEquals(nominationDetailsLightbox.verifyNominationDetailsTitle(), "Nomination Details");
         Assert.assertEquals(nominationDetailsLightbox.verifyDate(), "Date Nominated");
         //Assert.assertEquals(nominationDetailsLightbox.verifyDateValue(), "");

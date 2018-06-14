@@ -1,35 +1,40 @@
-package pages;
+package pages.nomination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class AwardMessagePage extends BasePage {
 
     @FindBy(id="np_awardTitle")
-    private WebElement title;
+    private TextInput title;
 
     @FindBy(id="np_awardMessage")
-    private WebElement messageToRecipient;
+    private TextInput messageToRecipient;
 
     @FindBy(id="np_messageForApproval")
-    private WebElement messageToAprover;
+    private TextInput messageToAprover;
 
     @FindBy(xpath="//*[@id='np_sideSection']/div[2]/button")
-    private WebElement sendAwardButton;
+    private Button sendAwardButton;
 
     @FindBy(xpath="//*[@class='np-confirmation-holder']/div[2]/button")
-    private WebElement closeButton;
+    private Link closeButton;
 
     @FindBy(xpath="//*[@class='np-confirmation-message']")
-    private WebElement confirmationText;
+    private TextBlock confirmationText;
 
     @FindBy(xpath="//div[@class='np-award-reason-info']")
-    private WebElement selectedReason;
+    private TextBlock selectedReason;
 
     @FindBy(xpath="//*[@id='np_sideAddDetails']//ul//div[1]")
-    private WebElement selectedAwardValue;
+    private TextBlock selectedAwardValue;
 
     public void addTitle(String titleText) {
         title.sendKeys(titleText);

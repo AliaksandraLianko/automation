@@ -1,43 +1,43 @@
 package scenarios;
 
+import businessobjects.NominationDetails;
+import factory.NominationStaticFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
-import utils.Preconditions;
+import pages.nomination.*;
+import services.NominationService;
 
-public class CreateNominationTest extends Preconditions {
+
+public class CreateNominationTest extends BaseNominatorTest {
+
     @Test(priority = -1)
     public void createNomination() throws InterruptedException{
-//        LoginPage loginPage = new LoginPage(driver);
-//        loginPage.openClientSite();
-//        loginPage.logIn("norma_nominator", "pass");
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        TopMenuPage topMenuPage = new TopMenuPage(getDriver());
         topMenuPage.clickRecognize();
-        SelectRecipientPage selectRecipientPage = new SelectRecipientPage(driver);
+        SelectRecipientPage selectRecipientPage = new SelectRecipientPage(getDriver());
         selectRecipientPage.selectRecipient();
         selectRecipientPage.clickNext();
-        SelectProgramPage selectProgramPage = new SelectProgramPage(driver);
+        SelectProgramPage selectProgramPage = new SelectProgramPage(getDriver());
         Assert.assertEquals(selectProgramPage.getInfoText(), "You are nominating Mandy Manager1");
         selectProgramPage.selectProgram();
-        SelectReasonPage selectReasonPage = new SelectReasonPage(driver);
+        SelectReasonPage selectReasonPage = new SelectReasonPage(getDriver());
         Assert.assertEquals(selectReasonPage.getSelectedProgram(), "recipientbased program");
         selectReasonPage.selectReason();
-        AwardAdvisorPage awardAdvisorPage = new AwardAdvisorPage(driver);
+        AwardAdvisorPage awardAdvisorPage = new AwardAdvisorPage(getDriver());
         awardAdvisorPage.skipAwardAdvisor();
-        SelectAwardValuePage selectAwardValuePage = new SelectAwardValuePage(driver);
+        SelectAwardValuePage selectAwardValuePage = new SelectAwardValuePage(getDriver());
         selectAwardValuePage.selectAwardLevel();
-        AwardMessagePage awardMessagePage = new AwardMessagePage(driver);
+        AwardMessagePage awardMessagePage = new AwardMessagePage(getDriver());
         //Assert.assertEquals(awardMessagePage.getSelectedReason(), "REASON3");
         Assert.assertEquals(awardMessagePage.getSelectedAwardValue(), "Award2 GBP 35");
-        awardMessagePage.addTitle("Test award title");
-        awardMessagePage.addMessageToRecipient("Test message to recipient");
-        awardMessagePage.addMessageToApprover("Test message for approver");
-        awardMessagePage.clickSendAward();
+        NominationDetails nomination = NominationStaticFactory.populateNomination();
+        NominationService nominationService = new NominationService(getDriver());
+        nominationService.populateAwardFields(nomination);
         Assert.assertEquals(awardMessagePage.getConfirmationText(), "Thanks for taking the time to recognize a colleague.\n" +
                 "It's an important part of our culture.");
         awardMessagePage.clickClose();
-//        loginPage.logOut();
-//        loginPage.logInAfterLogout();
+
 
     }
 
