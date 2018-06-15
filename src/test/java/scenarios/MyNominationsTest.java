@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import pages.*;
 import pages.mydashboard.MyDashboardMenuPage;
 import pages.mydashboard.MyNominationsPage;
-import utils.Preconditions;
 
 
 public class MyNominationsTest extends BaseNominatorTest  {

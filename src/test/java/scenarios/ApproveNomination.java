@@ -2,6 +2,7 @@ package scenarios;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.ApprovalLightbox;
 import pages.TopMenuPage;
 import pages.mydashboard.MyApprovalsPage;
@@ -16,7 +17,11 @@ public class ApproveNomination extends BaseApproverTest{
         MyDashboardMenuPage myDashboardMenuPage = new MyDashboardMenuPage(getDriver());
         myDashboardMenuPage.goToMyApprovals();
         MyApprovalsPage myApprovalsPage = new MyApprovalsPage(getDriver());
-        Assert.assertEquals(myApprovalsPage.verifyApprovalsTitle(), "My Approvals");
+        //Assert.assertEquals(myApprovalsPage.getApprovalsTitle(), "My Approvals");
+        /*StringBuilder myApprovalsPageErrorStack = verifyMyApprovalsPage();
+        Assert.assertTrue(myApprovalsPageErrorStack.length() == 0, myApprovalsPageErrorStack.toString());*/
+        SoftAssert assert1 = new SoftAssert();
+        assert1.assertEquals(myApprovalsPage.getApprovalsTitle(), "My Approvals");
         Thread.sleep(5000);
         Assert.assertEquals(myApprovalsPage.verifyNominationTitle(), "Norma Nominator nominated\n" +
                 "Mandy Manager1");
@@ -43,5 +48,14 @@ public class ApproveNomination extends BaseApproverTest{
         Thread.sleep(10000);
 
 
+    }
+
+    public StringBuilder verifyMyApprovalsPage() {
+        StringBuilder errorStack = new StringBuilder();
+        MyApprovalsPage myApprovalsPage = new MyApprovalsPage(getDriver());
+        if(!myApprovalsPage.getApprovalsTitle().equals("My Approvals")) {
+            errorStack.append("Unexpected title of My Approvals Page");
+        }
+        return errorStack;
     }
 }

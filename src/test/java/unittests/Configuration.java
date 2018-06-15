@@ -1,4 +1,4 @@
-package unitTests;
+package unittests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.AfterSuite;

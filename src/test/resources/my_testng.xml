@@ -8,8 +8,8 @@
 
     <test name="Test1">
         <classes>
-            <class name="unitTests.arithmericalTests.MultOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.MultOfLongTest"/>
+            <class name="unittests.arithmericaltests.MultOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.MultOfLongTest"/>
         </classes>
     </test>
 

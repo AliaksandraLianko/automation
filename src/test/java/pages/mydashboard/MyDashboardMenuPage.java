@@ -11,18 +11,18 @@ public class MyDashboardMenuPage extends BasePage {
     private By nominationsTitle = By.className("nominations-title");
     private By approvalsTitle = By.className("approvals-section-header-text");
 
-    @FindBy(xpath="//*//a[contains(@href,'MyNominations')]")
+    @FindBy(xpath = "//*//a[contains(@href,'MyNominations')]")
     private Link myNominations;
 
-    @FindBy(xpath="//*//a[contains(@href,'MyApprovals')]")
+    @FindBy(xpath = "//*//a[contains(@href,'MyApprovals')]")
     private Link myApprovals;
 
-    public void goToMyNominations(){
+    public void goToMyNominations() {
         myNominations.click();
         waitElementPresent(nominationsTitle);
     }
 
-    public void goToMyApprovals(){
+    public void goToMyApprovals() {
         myApprovals.click();
         waitElementPresent(approvalsTitle);
     }

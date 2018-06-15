@@ -46,7 +46,7 @@ public class MyApprovalsPage extends BasePage {
         waitElementPresent(approveNominationTitle);
     }
 
-    public String verifyApprovalsTitle() {
+    public String getApprovalsTitle() {
         return myApprovalsTitle.getText();
     }
 

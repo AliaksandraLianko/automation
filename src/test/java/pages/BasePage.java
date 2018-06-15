@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 import java.time.Duration;
@@ -53,6 +54,13 @@ public abstract class BasePage {
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public WebElement waitElementPresent(HtmlElement element) {
+        return new WebDriverWait(webdriver, 5)
+                .pollingEvery(Duration.ofSeconds(1))
+                .withMessage("Failed to wait element: " + element)
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+
     public WebElement waitElementClickable(final By by) {
         return new WebDriverWait(webdriver, 5)
                 .pollingEvery(Duration.ofSeconds(1))
@@ -60,11 +68,5 @@ public abstract class BasePage {
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    public WebElement waitElementAndClick(WebElement webElement) {
-        return new WebDriverWait(webdriver, 10)
-                .ignoring(StaleElementReferenceException.class)
-                .pollingEvery(Duration.ofSeconds(1))
-                .until(ExpectedConditions.elementToBeClickable(webElement));
-    }
 
 }

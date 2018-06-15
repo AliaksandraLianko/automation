@@ -1,10 +1,10 @@
-package unitTests.booleanTests;
+package unittests.booleantests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import unitTests.Configuration;
+import unittests.Configuration;
 
 public class NegativeTest extends Configuration {
     @Test(dataProvider = "dataProviderForIsNegative")

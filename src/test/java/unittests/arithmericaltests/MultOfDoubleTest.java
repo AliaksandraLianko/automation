@@ -1,10 +1,10 @@
-package unitTests.arithmericalTests;
+package unittests.arithmericaltests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import unitTests.Configuration;
+import unittests.Configuration;
 
 public class MultOfDoubleTest extends Configuration {
     @Parameters({"firstvalue", "secondvalue", "thirdvalue"})

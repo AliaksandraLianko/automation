@@ -1,10 +1,10 @@
-package unitTests.trigonometrickTests;
+package unittests.trigonometricktests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import unitTests.Configuration;
+import unittests.Configuration;
 
 public class TgOfDoubleTest extends Configuration {
         @Test(dataProvider = "dataProviderForTgOfDouble")

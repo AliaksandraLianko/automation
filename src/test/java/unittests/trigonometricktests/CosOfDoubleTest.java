@@ -1,20 +1,20 @@
-package unitTests.trigonometrickTests;
+package unittests.trigonometricktests;
 
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import unitTests.Configuration;
+import unittests.Configuration;
 
-public class SinOfDoubleTest  extends Configuration {
-    @Test(dataProvider = "dataProviderForSinOfDouble")
-    public void testSinOfDouble(double a, double expectedResult) throws Exception {
-        double result = new Calculator().sin(a);
+public class CosOfDoubleTest extends Configuration {
+    @Test(dataProvider = "dataProviderForCosOfDouble")
+    public void testCosOfDouble(double a, double expectedResult) throws Exception {
+        double result = new Calculator().cos(a);
         Assert.assertEquals(result, expectedResult, "Invalid result of sin, expected: " + expectedResult);
     }
 
 
-    @DataProvider(name="dataProviderForSinOfDouble")
+    @DataProvider(name="dataProviderForCosOfDouble")
     public Object[][] dataProvider() {
         return new Object[][] {
                 {Math.PI/2, 1},

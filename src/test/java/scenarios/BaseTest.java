@@ -25,7 +25,7 @@ public class BaseTest {
     @BeforeClass
     public void start(@Optional(value = "chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\drivers\\chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
         } else if (browser.equalsIgnoreCase("firefox")) {
