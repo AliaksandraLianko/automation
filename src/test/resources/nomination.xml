@@ -8,6 +8,7 @@
         <classes>
             <class name="scenarios.CreateNominationTest"/>
             <class name="scenarios.MyNominationsTest"/>
+            <class name="scenarios.ApproveNomination"/>
         </classes>
     </test>
 

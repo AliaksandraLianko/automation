@@ -12,20 +12,20 @@
             </run>
         </groups>
         <classes>
-            <class name="unitTests.arithmericalTests.DivOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.DivOfLongTest"/>
-            <class name="unitTests.arithmericalTests.MultOfLongTest"/>
-            <class name="unitTests.arithmericalTests.MultOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.PowOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.SqrtOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.SubOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.SubOfLongTest"/>
-            <class name="unitTests.arithmericalTests.SumOfDoubleTest"/>
-            <class name="unitTests.arithmericalTests.SumOfLongTest"/>
-            <class name="unitTests.trigonometrickTests.SinOfDoubleTest"/>
-            <class name="unitTests.trigonometrickTests.CosOfDoubleTest"/>
-            <class name="unitTests.trigonometrickTests.TgOfDoubleTest"/>
-            <class name="unitTests.trigonometrickTests.CtgOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.DivOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.DivOfLongTest"/>
+            <class name="unittests.arithmericaltests.MultOfLongTest"/>
+            <class name="unittests.arithmericaltests.MultOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.PowOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.SqrtOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.SubOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.SubOfLongTest"/>
+            <class name="unittests.arithmericaltests.SumOfDoubleTest"/>
+            <class name="unittests.arithmericaltests.SumOfLongTest"/>
+            <class name="unittests.trigonometricktests.SinOfDoubleTest"/>
+            <class name="unittests.trigonometricktests.CosOfDoubleTest"/>
+            <class name="unittests.trigonometricktests.TgOfDoubleTest"/>
+            <class name="unittests.trigonometricktests.CtgOfDoubleTest"/>
         </classes>
     </test>
 

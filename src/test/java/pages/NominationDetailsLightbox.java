@@ -4,94 +4,96 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
 
 public class NominationDetailsLightbox extends BasePage {
     @FindBy(xpath="//*[@id='panel']/div/div/div/h1")
-    private WebElement nominationDetailsTitle;
+    private TextBlock nominationDetailsTitle;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[1]/th[1]")
-    private WebElement date;
+    private TextBlock date;
 
     @FindBy(xpath="//*[@id='panel']/div//table[1]/tbody/tr[1]/td[1]")
-    private WebElement dateValue;
+    private TextBlock dateValue;
 
     @FindBy(xpath="//*[@id='panel']/div//table[1]/tbody/tr[2]/th[1]")
-    private WebElement awardType;
+    private TextBlock awardType;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[2]/td[1]")
-    private WebElement awardTypeValue;
+    private TextBlock awardTypeValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[3]/th[1]")
-    private WebElement reason;
+    private TextBlock reason;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[3]/td[1]")
-    private WebElement reasonValue;
+    private TextBlock reasonValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[4]/th[1]")
-    private WebElement department;
+    private TextBlock department;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[4]/td[1]")
-    private WebElement departmentValue;
+    private TextBlock departmentValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[5]/th[1]")
-    private WebElement awardTitle;
+    private TextBlock awardTitle;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[5]/td[1]")
-    private WebElement awardTitleValue;
+    private TextBlock awardTitleValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[1]/th[2]")
-    private WebElement nominator;
+    private TextBlock nominator;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[1]/td[2]")
-    private WebElement nominatorValue;
+    private TextBlock nominatorValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[2]/th[2]")
-    private WebElement currentApprover;
+    private TextBlock currentApprover;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[2]/td[2]")
-    private WebElement currentApproverValue;
+    private TextBlock currentApproverValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[3]/th[2]")
-    private WebElement status;
+    private TextBlock status;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[3]/td[2]")
-    private WebElement statusValue;
+    private TextBlock statusValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[4]/th[2]")
-    private WebElement submittedBy;
+    private TextBlock submittedBy;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[4]/td[2]")
-    private WebElement submittedByValue;
+    private TextBlock submittedByValue;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[5]/th[2]")
-    private WebElement privacy;
+    private TextBlock privacy;
 
     @FindBy(xpath="//*[@id='panel']//div/table[1]/tbody/tr[5]/td[2]")
-    private WebElement privacyValue;
+    private TextBlock privacyValue;
 
     @FindBy(xpath="//*[@id='panel']/div//table[2]/tbody/tr[1]/th")
-    private WebElement messageToApprover;
+    private TextBlock messageToApprover;
 
     @FindBy(xpath="//*[@id='panel']/div//table[2]/tbody/tr[1]/td")
-    private WebElement messageToApproverValue;
+    private TextBlock messageToApproverValue;
 
     @FindBy(xpath="//*[@id='panel']/div//table[2]/tbody/tr[2]/th")
-    private WebElement messageToRecipient;
+    private TextBlock messageToRecipient;
 
     @FindBy(xpath="//*[@id='panel']/div//table[2]/tbody/tr[2]/td")
-    private WebElement messageToRecipientValue;
+    private TextBlock messageToRecipientValue;
 
     @FindBy(xpath="//*[@id='recipientsTab']/a")
-    private WebElement recipientsTab;
+    private Link recipientsTab;
 
     @FindBy(xpath="//*[@id='approversTab']/a")
-    private WebElement approversTab;
+    private Link approversTab;
 
     @FindBy(xpath="//*[@id='historyTab']/a")
-    private WebElement historyTab;
+    private Link historyTab;
 
     @FindBy(xpath="//a[@class='container-close']")
-    private WebElement closeIcon;
+    private Link closeIcon;
 
     public String verifyNominationDetailsTitle() {
         return nominationDetailsTitle.getText();

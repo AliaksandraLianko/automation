@@ -2,40 +2,45 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class LoginPage extends BasePage{
-    private final String URL = "https://test-web1-17.corp.globoforce.com/microsites/t/home?client=recipientbased&setCAG=true";
 
     @FindBy(name="username")
-    private WebElement username;
+    private TextInput username;
 
     @FindBy(name="password")
-    private WebElement password;
+    private TextInput password;
 
     @FindBy(id="signIn-button")
-    private WebElement loginButton;
+    private Button loginButton;
 
     @FindBy(xpath="//*[@class='container']/div[2]//li[5]/a")
-    private WebElement logoutButton;
+    private Link logoutButton;
 
     @FindBy(xpath="//*[@id='signIn']//a")
-    private WebElement loginAfterLogoutButton;
+    private Button loginAfterLogoutButton;
 
-    public void openClientSite() {
-        getWebDriver().get(URL);
-        waitElementPresent(By.name("username"));
+    private By xpath = By.xpath("//*[@id=\"navBar\"]//a[contains(@href,'dashboard')]");
+
+    public void setUsername(String name) {
+        username.sendKeys(name);
     }
 
-    public void logIn(String user, String pass){
-        username.sendKeys(user);
-        password.sendKeys(pass);
+    public void setPassword(String pswd) {
+        password.sendKeys(pswd);
+    }
+
+    public void clickOnLoginButton() {
         loginButton.click();
-        waitElementPresent(By.xpath("//*[@id=\"navBar\"]//a[contains(@href,'dashboard')]"));
+        waitElementPresent(xpath);
     }
 
     public void logOut() {
+        waitElementClickable(By.xpath("//*[@class='container']/div[2]//li[5]/a"));
         logoutButton.click();
         waitElementPresent(By.id("signIn"));
     }
