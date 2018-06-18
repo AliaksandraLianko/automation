@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods" thread-count="3">
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Web Services">
+        <classes>
+            <class name="webservices.PositiveScenario"/>
+            <class name="webservices.NegativeScenario"/>
+            <class name="webservices.NegativeErrorCode"/>
+        </classes>
+    </test>
+
+
+</suite>
