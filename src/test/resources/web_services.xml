@@ -6,9 +6,9 @@
 
     <test name="Web Services">
         <classes>
-            <class name="webservices.PositiveScenario"/>
-            <class name="webservices.NegativeScenario"/>
-            <class name="webservices.NegativeErrorCode"/>
+            <class name="webservices.scenarios.PositiveScenario"/>
+            <class name="webservices.scenarios.NegativeScenario"/>
+            <class name="webservices.scenarios.NegativeErrorCode"/>
         </classes>
     </test>
 
