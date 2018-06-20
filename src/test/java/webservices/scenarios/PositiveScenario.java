@@ -60,7 +60,6 @@ public class PositiveScenario {
     public void verifyCapital() {
         String expectedCapital = String.format("\"capital\" : \"%s\"", "Phoenix");
         Assert.assertTrue(result.get("content").toString().contains(expectedCapital), "Wrong capital!");
-
     }
 
 }
