@@ -4,20 +4,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import pages.LoginPage;
+import utils.CustomListener;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(CustomListener.class)
 public class BaseTest {
 
     private static final int IMPLICIT_TIMEOUT = 15;
-    private WebDriver driver;
+    private static WebDriver driver;
 
-    protected WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 

@@ -7,10 +7,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@Listeners(CustomListener.class)
 public class RemoteDriverHelper {
     protected WebDriver driver;
     private final String URL = "http://192.168.56.1:4444/wd/hub";

@@ -1,5 +1,6 @@
 package scenarios;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -9,12 +10,15 @@ import pages.mydashboard.MyApprovalsPage;
 import pages.mydashboard.MyDashboardMenuPage;
 
 public class ApproveNomination extends BaseApproverTest{
+    private Logger logger = Logger.getLogger(getClass());
 
     @Test(priority = 1)
     public void approveNomination() throws InterruptedException {
         TopMenuPage topMenuPage = new TopMenuPage(getDriver());
+        logger.info("Navigate My Dashboard");
         topMenuPage.goToMyDashboard();
         MyDashboardMenuPage myDashboardMenuPage = new MyDashboardMenuPage(getDriver());
+        logger.info("Navigate to My Approvals");
         myDashboardMenuPage.goToMyApprovals();
         MyApprovalsPage myApprovalsPage = new MyApprovalsPage(getDriver());
         //Assert.assertEquals(myApprovalsPage.getApprovalsTitle(), "My Approvals");
@@ -32,6 +36,7 @@ public class ApproveNomination extends BaseApproverTest{
         Assert.assertEquals(myApprovalsPage.verifyViewNominationLink(), "View Nomination");
         Assert.assertEquals(myApprovalsPage.verifyApproveButton(), "Approve");
         Assert.assertEquals(myApprovalsPage.verifyDisapproveButton(), "Disapprove");
+        logger.info("Open Nomination Details lightbox");
         myApprovalsPage.clickViewNominationLink();
         ApprovalLightbox approvalLightbox = new ApprovalLightbox(getDriver());
         Assert.assertEquals(approvalLightbox.verifyNominationDetailsTitle(), "Norma Nominator nominated Mandy Manager1");
@@ -44,6 +49,7 @@ public class ApproveNomination extends BaseApproverTest{
         Assert.assertTrue(approvalLightbox.verifyCongratulationField());
         Assert.assertEquals(approvalLightbox.verifyApproveButton(), "Approve");
         Assert.assertEquals(approvalLightbox.verifyDisapproveButton(), "Disapprove");
+        logger.info("Approve nomination");
         approvalLightbox.approveNomination();
         Thread.sleep(10000);
 

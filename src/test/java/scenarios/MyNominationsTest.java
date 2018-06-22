@@ -1,6 +1,7 @@
 package scenarios;
 
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -9,21 +10,27 @@ import pages.mydashboard.MyNominationsPage;
 
 
 public class MyNominationsTest extends BaseNominatorTest  {
+    private Logger logger = Logger.getLogger(getClass());
 
     @Test(priority = 0)
     public void verifyMyNominationsPage() throws InterruptedException{
         TopMenuPage topMenuPage = new TopMenuPage(getDriver());
+        logger.info("Go to My Dashboard");
         topMenuPage.goToMyDashboard();
         MyDashboardMenuPage myDashboardMenuPage = new MyDashboardMenuPage(getDriver());
+        logger.info("Go to My Nominations");
         myDashboardMenuPage.goToMyNominations();
         MyNominationsPage myNominationsPage = new MyNominationsPage(getDriver());
+        logger.info("Verify My Nominations page");
         Assert.assertEquals(myNominationsPage.verifyDate(), "Date");
         Assert.assertEquals(myNominationsPage.verifyAwardType(), "Award Type");
         Assert.assertEquals(myNominationsPage.verifyRecipient(), "Recipient");
         Assert.assertEquals(myNominationsPage.verifyStatus(), "Status");
         Assert.assertEquals(myNominationsPage.verifyAwardAmount(), "Award Amount");
+        logger.info("Open Nomination Details lightbox");
         myNominationsPage.openNominationDetailsLightbox();
         NominationDetailsLightbox nominationDetailsLightbox = new NominationDetailsLightbox(getDriver());
+        logger.info("Verify Nomination Details lightbox");
         Assert.assertEquals(nominationDetailsLightbox.verifyNominationDetailsTitle(), "Nomination Details");
         Assert.assertEquals(nominationDetailsLightbox.verifyDate(), "Date Nominated");
         //Assert.assertEquals(nominationDetailsLightbox.verifyDateValue(), "");
@@ -53,6 +60,7 @@ public class MyNominationsTest extends BaseNominatorTest  {
         Assert.assertEquals(nominationDetailsLightbox.verifyRecipientsTab(), "RECIPIENTS");
         Assert.assertEquals(nominationDetailsLightbox.verifyApproversTab(), "APPROVERS");
         Assert.assertEquals(nominationDetailsLightbox.verifyHistoryTab(), "HISTORY");
+        logger.info("Close Nomination Details lightbox");
         nominationDetailsLightbox.closeNominationDetailsLightbox();
 
     }
