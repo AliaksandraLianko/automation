@@ -23,7 +23,7 @@ public class CreateNominationTest extends BaseNominatorTest {
         selectRecipientPage.selectRecipient();
         selectRecipientPage.clickNext();
         SelectProgramPage selectProgramPage = new SelectProgramPage(getDriver());
-        Assert.assertEquals(selectProgramPage.getInfoText(), "You are nominating Mandy Manager1");
+        Assert.assertEquals(selectProgramPage.getInfoText(), "You are not nominating Mandy Manager1");
         logger.info("Select award program");
         selectProgramPage.selectProgram();
         SelectReasonPage selectReasonPage = new SelectReasonPage(getDriver());
