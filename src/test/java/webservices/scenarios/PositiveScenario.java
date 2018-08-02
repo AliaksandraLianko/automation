@@ -26,7 +26,7 @@ public class PositiveScenario {
         Assert.assertEquals(result.get("code"), 200, "Unexpected status code!");
     }
 
-    @Test(dependsOnMethods = "verifyStateCode")
+    @Test(dependsOnMethods = "verifyStatusCode")
     public void verifyCountry() {
         String expectedCountry = String.format("\"country\" : \"%s\"", country);
         Assert.assertTrue(result.get("content").toString().contains(expectedCountry), "Wrong country!");
